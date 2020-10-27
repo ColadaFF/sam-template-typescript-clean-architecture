@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM Ports and Adapters
+
+  Sample SAM Template for port and adapters architecture
+
+Globals:
+  Function:
+    Timeout: 3
+    CodeUri: src
+    Runtime: nodejs12.x
+
+Resources:
+  DomainExampleController:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      Handler: greetingDomain/adapters/in/greetingController.default
+
+Outputs:
+  DomainExampleController:
+    Description: 'Domain Example Controller Function ARN'
+    Value: !GetAtt DomainExampleController.Arn

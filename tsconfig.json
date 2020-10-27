@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "CommonJS",
+    "allowJs": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "UseCase": ["./utils/useCase.ts"],
+      "Handler": ["./utils/handlerUtils/index.ts"],
+      "User": ["./utils/user.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.js"]
+}
