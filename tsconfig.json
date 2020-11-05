@@ -3,14 +3,18 @@
     "target": "ES2015",
     "module": "CommonJS",
     "allowJs": true,
-    "checkJs": false,
+    "checkJs": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "baseUrl": "./src/",
     "paths": {
       "UseCase": ["./utils/useCase.ts"],
       "Handler": ["./utils/handlerUtils/index.ts"],
-      "User": ["./utils/user.ts"]
+      "User": ["./utils/user.ts"],
+      "Error": ["./utils/error.ts"],
+      "Controller": ["./utils/controller/index.ts"],
+      "ID": ["./utils/idUtils.ts"],
+      "Preconditions": ["./utils/preconditions.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.js"]

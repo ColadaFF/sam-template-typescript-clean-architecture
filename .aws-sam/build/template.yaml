@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: 'AWS::Serverless-2016-10-31'
+Description: |
+  SAM Ports and Adapters
+  Sample SAM Template for port and adapters architecture
+Parameters:
+  RoleARN:
+    Description: Lambda Execution Role ARN
+    Type: String
+    Default: 'arn:aws:iam::524283601307:role/QonsaiDevLambdaRole'
+Globals:
+  Function:
+    Timeout: 10
+    CodeUri: src
+    Runtime: nodejs12.x
+    Environment:
+      Variables:
+        TABLE_NAME: DEV_QONSAI_TABLE
+        OPENVIDU_URL: 'https://video.qonsai.com/'
+        OPENVIDU_SECRET: 3648be5b-a4cf-4481-9d0f-373dee9a0f31
+    Layers:
+      - 'arn:aws:lambda:us-east-1:027255383542:layer:AWS-AppConfig-Extension:1'
+Resources:
+  AdaptativeTestsController:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: app.default
+      Role: !<!Ref> RoleARN
+      CodeUri: AdaptativeTestsController
+Outputs:
+  AdaptativeTestsController:
+    Description: AdaptativeTests Controller Function ARN
+    Value: !<!GetAtt> AdaptativeTestsController.Arn

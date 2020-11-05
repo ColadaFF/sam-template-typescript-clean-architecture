@@ -6,3 +6,4 @@ dist
 coverage
 
 webpack.config.js
+tests/*.js

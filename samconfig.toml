@@ -1,0 +1,20 @@
+version = 0.1
+[dev]
+[dev.deploy]
+[dev.deploy.parameters]
+stack_name = "qonsai-backend-dev"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1ugcs2dan9l4f"
+s3_prefix = "qonsai-backend-dev"
+region = "us-east-1"
+profile = "ias-qonsai"
+capabilities = "CAPABILITY_IAM"
+
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "qonsai-backend-dev"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1ugcs2dan9l4f"
+s3_prefix = "qonsai-backend-dev"
+region = "us-east-1"
+profile = "ias-qonsai"
+capabilities = "CAPABILITY_IAM"

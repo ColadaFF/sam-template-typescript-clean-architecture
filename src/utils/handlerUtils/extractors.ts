@@ -1,5 +1,5 @@
 import middy from '@middy/core';
-import User, { UserType } from 'utils/user';
+import User, { UserType } from 'User';
 import InputEvent from './events';
 
 type CognitoIdentity = {
@@ -40,14 +40,14 @@ function getUserFromEvent(event: AppSyncEvent): User {
     return {
       authorities: identity.groups,
       id: identity.sub,
-      ip: identity.sourceIp[0],
-      type: UserType.Authenticated,
+      ipAddress: identity.sourceIp[0],
+      userType: UserType.Authenticated,
       username: identity.username,
     };
   }
   return {
-    type: UserType.Anonymous,
-    ip: request.headers['x-forwarded-for'].split(', ')[0],
+    userType: UserType.Anonymous,
+    ipAddress: request.headers['x-forwarded-for'].split(', ')[0],
   };
 }
 
